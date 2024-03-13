@@ -2,12 +2,13 @@ package com.udemycourse.demo_crud.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table
+@Data
 public class Company {
 
     @Id
@@ -26,5 +27,5 @@ public class Company {
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE})
     @JoinColumn(name = "id_company", referencedColumnName = "id")
-    private List<WebSite> webSiteList;
+    private List<WebSite> webSites;
 }
